@@ -50,7 +50,7 @@ $r=<<<EOF
 	WHERE disease_id=$id;
 EOF;
 if(mysql_query($r)){
-	echo 'Data modified';
+	echo '<div class="msg success"><span>Record Modified</span></div>';
 }
 
 ?>

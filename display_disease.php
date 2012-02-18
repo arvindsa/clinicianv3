@@ -12,13 +12,13 @@ function proc($str,$column,$table,$idn){
 	}
 }
 if(!isset($_GET['id'])){
-	die('No data');
+	die('<div class="msg failure"><span>No data<span></div>');
 }
 
 $id=intval($_GET['id']);
 $r=query('SELECT * FROM disease INNER JOIN relation ON disease.disease_id=relation.disease_id where disease.disease_id='.$id.'');
 if(mysql_num_rows($r)==0){
-	die('No disease found');
+	die('<div class="msg failure"><span>No disease found</span><div>');
 }
 
 $r=mysql_fetch_assoc($r);
