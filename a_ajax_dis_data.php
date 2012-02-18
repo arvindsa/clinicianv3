@@ -7,7 +7,7 @@
 */
 
 if(!isset($_GET['id'])){
-	die('<div class="msg failure"><span>No data<span></div>');
+	die('<div class="msg failure"><span>No data</span></div>');
 }
 
 $did=intval($_GET['id']);
@@ -16,8 +16,7 @@ require('inc/sql.php');
 $q='SELECT basics,disease_name FROM `disease` WHERE disease_id=\''.$did.'\'';
 $q=query($q);
 if(mysql_num_rows($q)!=1){
-	header('Location: a_disease_1.php');
-	exit();
+	die('<div class="msg failure"><span>No data</span></div>');
 }
 $row=mysql_fetch_assoc($q);
 		if(isset($_GET['back']) && $_GET['back']=='true'){
