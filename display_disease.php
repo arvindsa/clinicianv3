@@ -25,13 +25,24 @@ $r=mysql_fetch_assoc($r);
 
 //var_dump($r);
 echo "<h1>$r[disease_name]</h1>";
+if($r['basics']!=''){
 echo "<h2>Basics</h2><div class=\"data_tab\">$r[basics]</div>";
-//echo "<h2></h2><div class=\"data_tab\">$r[]</div>";
-echo "<h2>Keynotes</h2><div class=\"data_tab\">$r[keynotes]</div>";
+}//echo "<h2></h2><div class=\"data_tab\">$r[]</div>";
+if($r['keynotes']!='')
+{echo "<h2>Keynotes</h2><div class=\"data_tab\">$r[keynotes]</div>";
+}
+if($r['lab']!='')
+{
 echo "<h2>Lab</h2><div class=\"data_tab\">$r[lab]</div>";
+}
+if($r['diagnosis']!='')
+{
 echo "<h2>Diagnosis</h2><div class=\"data_tab\">$r[diagnosis]</div>";
+}
+if($r['treatment']!='')
+{
 echo "<h2>Treatment</h2><div class=\"data_tab\">$r[treatement]</div>";
-echo "<h2>Diagnosis</h2><div class=\"data_tab\">$r[diagnosis]</div>";
+}
 echo "<h2>Sex & Age</h2><div class=\"data_tab\" class=\"case_up\">$r[sex], $r[age]</div>";
 echo "<h2>Clinical Presentation</h2><div class=\"data_tab\"><ul>"; proc($r['sym'],'symptom','symptom','id');echo '</ul></div>';
 //echo "<h2></h2><div class=\"data_tab\"><ul>"; proc($r[''],'','','');echo '</ul></div>';
