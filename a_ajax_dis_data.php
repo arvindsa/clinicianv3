@@ -7,8 +7,7 @@
 */
 
 if(!isset($_GET['id'])){
-	header('Location: a_disease_1.php');
-	exit();
+	die('<div class="msg failure"><span>No data<span></div>');
 }
 
 $did=intval($_GET['id']);
