@@ -39,7 +39,7 @@ if($r['diagnosis']!='')
 {
 echo "<h2>Diagnosis</h2><div class=\"data_tab\">$r[diagnosis]</div>";
 }
-if($r['treatment']!='')
+if($r['treatement']!='')
 {
 echo "<h2>Treatment</h2><div class=\"data_tab\">$r[treatement]</div>";
 }
