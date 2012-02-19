@@ -18,7 +18,7 @@ if(!isset($_GET['id'])){
 $id=intval($_GET['id']);
 $r=query('SELECT * FROM disease INNER JOIN relation ON disease.disease_id=relation.disease_id where disease.disease_id='.$id.'');
 if(mysql_num_rows($r)==0){
-	die('<div class="msg failure"><span>No disease found</span><div>');
+	die('<div class="msg failure"><span>No disease found</span></div>');
 }
 
 $r=mysql_fetch_assoc($r);

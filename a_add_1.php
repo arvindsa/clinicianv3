@@ -12,6 +12,7 @@
 <div class="buttons">
   <a href="a_add_disease_1.php" class="button ajax_call green"><span class="icon icon145"></span><span class="label">Add Disease</span></a>
   <a href="a_disease_edit_1.php" class="button ajax_call green"><span class="icon icon145"></span><span class="label">Edit Disease</span></a> 
+  <a href="a_disease_delete_1.php" class="button ajax_call green"><span class="icon icon145"></span><span class="label">Delete Disease</span></a>
       <a href="a_update_dis.php" class="button ajax_call green"><span class="icon icon145"></span><span class="label">Update Records </span></a>
 
 </div><p>&nbsp;</p>
