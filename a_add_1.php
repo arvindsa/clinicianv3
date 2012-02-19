@@ -63,6 +63,17 @@
 
 <div class="buttons">
   <a href="a_add_habbit.php" class="button ajax_call green"><span class="icon icon145"></span><span class="label">Add </span></a>
+</div><p>&nbsp;</p>  <h1> Differential </h1>
+
+<div class="buttons">
+  <a href="a_add_dif.php" class="button ajax_call green"><span class="icon icon145"></span><span class="label">Add </span></a>
+    <a href="a_update_dif.php" class="button ajax_call green"><span class="icon icon145"></span><span class="label">Update Records </span></a>
+</div><p>&nbsp;</p>
+<h1> Lab Investigation </h1>
+
+<div class="buttons">
+  <a href="a_add_lab.php" class="button ajax_call green"><span class="icon icon145"></span><span class="label">Add </span></a>
+    <a href="a_update_lab.php" class="button ajax_call green"><span class="icon icon145"></span><span class="label">Update Lab </span></a>
 </div>
 </td>
   </tr>

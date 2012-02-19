@@ -3,11 +3,20 @@ require('inc/sqlgen.php');
 require('inc/sql.php');
 
 //Generate the SQL Query
+$q=$_GET['s_id'];
+if($q==''){
+	header('Location: a_w_sym_1.php?m=Please type atleast one symptom');
+	exit;
+}
+$q=trim($q,',');
+$q=explode(',',$q);
+if(count($q)==0){
+	header('Location: a_w_sym_1.php?m=Please type atleast one symptom');
+	exit;
+}
 $query = new SqlGen("select");
 $query->setTable("relation");
 $query->addColumn('*');
-$q=$_GET['s_id'];
-$q=explode(',',$q);
 $qclean=array();
 foreach($q as $v){
 	if($v!=''){
