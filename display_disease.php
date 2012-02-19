@@ -61,29 +61,19 @@ echo "<h2>Predisposition</h2><div class=\"data_tab\"><ul>"; proc($r['pre'],'pre_
 </div>
 </br>
 <?
+
 echo "<h1>POSSIBILITIES</h1>";
-
 $nw = query('SELECT sym FROM relation where disease_id='.$id.'');
-
-if(mysql_num_rows($nw)==0){
-	die('<div class="msg failure"><span>No disease found</span><div>');
-}
-else
-{
 $query_row=mysql_fetch_array($nw);
-//echo strlen($query_row['sym']);
-$ex = explode(":",$query_row['sym']);
-/*echo $ex[1];
-echo $ex[2];
-echo $ex[3];
-echo $ex[4];
-echo $ex[5];
-*/
-$xx = query('SELECT symptom FROM symptom WHERE id='.$ex[1].'');
-
-$xy = mysql_fetch_array($xx);
-
-echo $xy['symptom'];
-
+$qq =query('SELECT disease_id FROM relation WHERE sym LIKE \'%'.$query_row['sym'].'%\'');
+if(mysql_num_rows($qq)==0){
+	echo "No disease found";
+}
+//echo 'No of Possibilities = '.mysql_num_rows($qq).'</br>';
+while ($row = mysql_fetch_array($qq, MYSQL_ASSOC)) {
+	$wq = query('SELECT disease_name from disease WHERE disease_id='.$row['disease_id'].'');
+	$name = mysql_fetch_array($wq);
+	echo '<h2><a href="display_disease.php?id='.$row['disease_id'].'" class="ajax_call">'.$name['disease_name'].'</a><h2>';
 }
 ?>
+
