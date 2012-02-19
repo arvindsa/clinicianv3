@@ -71,10 +71,19 @@ if(mysql_num_rows($nw)==0){
 else
 {
 $query_row=mysql_fetch_array($nw);
-echo $query_row['sym'];
+//echo strlen($query_row['sym']);
+$ex = explode(":",$query_row['sym']);
+/*echo $ex[1];
+echo $ex[2];
+echo $ex[3];
+echo $ex[4];
+echo $ex[5];
+*/
+$xx = query('SELECT symptom FROM symptom WHERE id='.$ex[1].'');
+
+$xy = mysql_fetch_array($xx);
+
+echo $xy['symptom'];
+
 }
-
-
-
-
 ?>
