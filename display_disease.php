@@ -54,6 +54,27 @@ echo "<h2>Habit</h2><div class=\"data_tab\"><ul>"; proc($r['hab'],'hab_name','ha
 echo "<h2>Predisposition</h2><div class=\"data_tab\"><ul>"; proc($r['pre'],'pre_name','predisposition','pre_id');echo '</ul></div>';
 
 ?>
+</br>
+</br>
 <div class="buttons">
 <a href="a_edit_disease_1.php?id=<?php echo $id;?>" class="button ajax_call green"><span class="icon icon145"></span><span class="label">Edit Disease</span></a>
 </div>
+</br>
+<?
+echo "<h1>POSSIBILITIES</h1>";
+
+$nw = query('SELECT sym FROM relation where disease_id='.$id.'');
+
+if(mysql_num_rows($nw)==0){
+	die('<div class="msg failure"><span>No disease found</span><div>');
+}
+else
+{
+$query_row=mysql_fetch_array($nw);
+echo $query_row['sym'];
+}
+
+
+
+
+?>
