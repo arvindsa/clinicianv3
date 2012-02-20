@@ -1,0 +1,5 @@
+Things to add :
+
+1.  	Delete a record and it corresponding relation
+2.	Add database
+3.	Change Edit database
