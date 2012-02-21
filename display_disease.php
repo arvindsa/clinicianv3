@@ -67,13 +67,29 @@ $nw = query('SELECT sym FROM relation where disease_id='.$id.'');
 $query_row=mysql_fetch_array($nw);
 $qq =query('SELECT disease_id FROM relation WHERE sym LIKE \'%'.$query_row['sym'].'%\'');
 if(mysql_num_rows($qq)==0){
-	echo "No disease found";
+	echo "No disease found"; 
 }
 //echo 'No of Possibilities = '.mysql_num_rows($qq).'</br>';
+$temp=array();
+while ($row=mysql_fetch_assoc($qq)){
+    if($row['disease_id']!=$id){
+        $temp[]=$row['disease_id'];
+    }    
+}
+if(count($temp)>0){
+    $str=implode($temp,',');
+    $wq = query('SELECT disease_name,disease_id from disease WHERE disease_id IN ('.$str.')');
+    while ($row=mysql_fetch_assoc($wq)){
+           echo '<h2><a href="display_disease.php?id='.$row['disease_id'].'" class="ajax_call">'.$row['disease_name'].'</a><h2>';
+    } 
+}else{
+    echo "No diseases found";
+}
+/* 
 while ($row = mysql_fetch_array($qq, MYSQL_ASSOC)) {
 	$wq = query('SELECT disease_name from disease WHERE disease_id='.$row['disease_id'].'');
 	$name = mysql_fetch_array($wq);
 	echo '<h2><a href="display_disease.php?id='.$row['disease_id'].'" class="ajax_call">'.$name['disease_name'].'</a><h2>';
-}
+}       */
 ?>
 

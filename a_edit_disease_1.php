@@ -8,6 +8,9 @@ if(mysql_num_rows($r)==0){
 }
 $r=mysql_fetch_assoc($r);
 function proc($str,$column,$table,$idn){
+    if($str==''){
+        return;
+    }
 	//Remove space
 	$str=trim($str,' :');
 	$str=explode(':',$str);
