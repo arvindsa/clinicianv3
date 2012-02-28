@@ -1,0 +1,4 @@
+21 Feb 2011 by Arvind
+Integrated addition of new medication, presentaion etc into adding disease
+Change method of adding new disease
+improved performance of  related disease -> old code commented out, Anoop: this way we reduce the no of queries
