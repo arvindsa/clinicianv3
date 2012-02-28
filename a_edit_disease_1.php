@@ -104,7 +104,6 @@ function proc($str,$column,$table,$idn){
   
   <div class="spacer_30"></div>
   <label><span>Sex</span>
-
     <textarea name="d[sex]" cols="" rows="" class="fullw"><?php echo $r['sex'];?></textarea>
   </label>
   
