@@ -26,7 +26,7 @@ $row=mysql_fetch_assoc($q);
 ?>
 
 <h2><?php echo $row['dif_name'];?></h2>
-<div><?php echo $row['dif_desc'];
+<div><?php echo stripslashes($row['dif_desc']);
 echo "<div class=\"".$spacer."\">&nbsp;</div>";?>
 </div>
 <script type="text/javascript">bind_link();</script>

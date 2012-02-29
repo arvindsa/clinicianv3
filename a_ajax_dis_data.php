@@ -26,7 +26,7 @@ $row=mysql_fetch_assoc($q);
 ?>
 
 <h2><?php echo $row['disease_name'];?></h2>
-<div><?php echo $row['basics'];
+<div><?php echo stripslashes($row['basics']);
 echo "<div class=\"".$spacer."\">&nbsp;</div>";?>
 <a href="display_disease.php?id=<?php echo $did;?>" class="ajax_call">Read More</a>
 </div>

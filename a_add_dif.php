@@ -21,5 +21,11 @@
     <input id="saveForm" class="button_text" type="submit" name="submit" value="Save" />
   </center>
 </form>
-<script>
+<script>$("textarea").cleditor({
+          width:        "100%", // width not including margins, borders or padding
+          height:       250, // height not including margins, borders or padding
+          controls:     // controls to add to the toolbar
+                        "bold italic underline strikethrough subscript superscript | font size " +
+                        "style | color highlight removeformat | bullets numbering | outdent " +
+                        "indent | alignleft center alignright justify"});
 bind_form();</script> 

@@ -66,10 +66,10 @@ $r=<<<EOF
 	age='$clean[age]'
 	WHERE disease_id=$id;
 EOF;
-
-if(!$r){
-	die('SQL ERROR');
+if(!mysql_query($r)){
+    echo '<div class="msg failure"><span>SQl Error</span></div>';
 }
+
 //UPDATE Relation
 
 $sym=proc($_POST['d']['sym'],'sym');

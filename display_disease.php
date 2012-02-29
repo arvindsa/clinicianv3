@@ -5,7 +5,13 @@ function proc($str,$column,$table,$idn){
 	//Remove space
 	$str=trim($str,' :');
 	$str=explode(':',$str);
+	if(count($str)<0){
+		return;
+	}
 	$str=implode(',',$str);
+	if($str==''){
+		return;
+	}
 	$q=query('SELECT '.$column.' AS Data FROM '.$table.' where '.$idn.' IN ('.$str.')');
 	while($r=mysql_fetch_assoc($q)){
 		echo '<li>'.$r['Data'].'</li>';
@@ -26,22 +32,22 @@ $r=mysql_fetch_assoc($r);
 //var_dump($r);
 echo "<h1>$r[disease_name]</h1>";
 if($r['basics']!=''){
-echo "<h2>Basics</h2><div class=\"data_tab\">$r[basics]</div>";
+echo "<h2>Basics</h2><div class=\"data_tab\">".stripslashes($r['basics'])."</div>";
 }//echo "<h2></h2><div class=\"data_tab\">$r[]</div>";
 if($r['keynotes']!='')
-{echo "<h2>Keynotes</h2><div class=\"data_tab\">$r[keynotes]</div>";
+{echo "<h2>Keynotes</h2><div class=\"data_tab\">".stripslashes($r['keynotes'])."</div>";
 }
 if($r['lab']!='')
 {
-echo "<h2>Lab</h2><div class=\"data_tab\">$r[lab]</div>";
+echo "<h2>Lab</h2><div class=\"data_tab\">".stripslashes($r['lab'])."</div>";
 }
 if($r['diagnosis']!='')
 {
-echo "<h2>Diagnosis</h2><div class=\"data_tab\">$r[diagnosis]</div>";
+echo "<h2>Diagnosis</h2><div class=\"data_tab\">".stripslashes($r['diagnosis'])."</div>";
 }
 if($r['treatement']!='')
 {
-echo "<h2>Treatment</h2><div class=\"data_tab\">$r[treatement]</div>";
+echo "<h2>Treatment</h2><div class=\"data_tab\">".stripslashes($r['treatement'])."</div>";
 }
 echo "<h2>Sex & Age</h2><div class=\"data_tab\" class=\"case_up\">$r[sex], $r[age]</div>";
 echo "<h2>Clinical Presentation</h2><div class=\"data_tab\"><ul>"; proc($r['sym'],'symptom','symptom','id');echo '</ul></div>';

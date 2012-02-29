@@ -26,7 +26,7 @@ $row=mysql_fetch_assoc($q);
 ?>
 
 <h2><?php echo $row['lab_name'];?></h2>
-<div><?php echo $row['lab_desc'];
+<div><?php echo stripslashes($row['lab_desc']);
 echo "<div class=\"".$spacer."\">&nbsp;</div>";?>
 </div>
 <script type="text/javascript">bind_link();</script>
