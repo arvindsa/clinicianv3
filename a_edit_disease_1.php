@@ -98,13 +98,14 @@ function proc($str,$column,$table,$idn){
   
   <div class="spacer_30"></div>
   <label><span>Age</span>
-
-    <textarea name="d[age]" cols="" rows="" class="fullw"><?php echo $r['age'];?></textarea>
+	<input name="d[age]" type="text" class="fullw" value="<?php echo $r['age'];?>">
+   
   </label>
   
   <div class="spacer_30"></div>
   <label><span>Sex</span>
-    <textarea name="d[sex]" cols="" rows="" class="fullw"><?php echo $r['sex'];?></textarea>
+	<input name="d[sex]" type="text" class="fullw" value="<?php echo $r['sex'];?>">   
+   
   </label>
   
   
