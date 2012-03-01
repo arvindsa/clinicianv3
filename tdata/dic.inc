@@ -1,1 +1,0 @@
-<option value="1">5HT</option><option value="4">A</option><option value="2">a-</option><option value="3">a.c.</option><option value="5">AA</option>

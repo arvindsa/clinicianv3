@@ -12,9 +12,20 @@ function proc($str,$column,$table,$idn){
 	if($str==''){
 		return;
 	}
-	$q=query('SELECT '.$column.' AS Data FROM '.$table.' where '.$idn.' IN ('.$str.')');
-	while($r=mysql_fetch_assoc($q)){
-		echo '<li>'.$r['Data'].'</li>';
+	$q=query('SELECT '.$column.' AS Data,'.$idn.' AS id FROM '.$table.' where '.$idn.' IN ('.$str.')');
+	if(isset($_GET['high']) && $table==$_GET['high']){
+		$val=explode(',',$_GET['val']);
+		while($r=mysql_fetch_assoc($q)){
+			if(in_array($r['id'],$val)){
+                 echo '<li><span class="high">'.$r['Data'].'</span></li>';
+            }else{
+                 echo '<li>'.$r['Data'].'</li>';       
+            }			
+		}	
+	}else{
+		while($r=mysql_fetch_assoc($q)){
+			echo '<li>'.$r['Data'].'</li>';
+		}
 	}
 }
 if(!isset($_GET['id'])){
