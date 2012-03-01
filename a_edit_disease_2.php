@@ -57,6 +57,7 @@ $id=intval($_POST['id']);
 $r=<<<EOF
 	UPDATE `disease` SET
 	keynotes='$clean[keynotes]',
+    risk='$clean[risk]',
 	basics='$clean[basics]',
 	lab='$clean[lab]',
 	treatement='$clean[treatment]',

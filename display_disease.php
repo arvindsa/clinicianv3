@@ -60,6 +60,10 @@ if($r['treatement']!='')
 {
 echo "<h2>Treatment</h2><div class=\"data_tab\">".stripslashes($r['treatement'])."</div>";
 }
+if($r['risk']!='')
+{
+echo "<h2>Risk Factors</h2><div class=\"data_tab\">".stripslashes($r['risk'])."</div>";
+}
 echo "<h2>Sex & Age</h2><div class=\"data_tab\" class=\"case_up\">$r[sex], $r[age]</div>";
 echo "<h2>Clinical Presentation</h2><div class=\"data_tab\"><ul>"; proc($r['sym'],'symptom','symptom','id');echo '</ul></div>';
 //echo "<h2></h2><div class=\"data_tab\"><ul>"; proc($r[''],'','','');echo '</ul></div>';
@@ -77,7 +81,7 @@ echo "<h2>Predisposition</h2><div class=\"data_tab\"><ul>"; proc($r['pre'],'pre_
 <a href="a_edit_disease_1.php?id=<?php echo $id;?>" class="button ajax_call green"><span class="icon icon145"></span><span class="label">Edit Disease</span></a>
 </div>
 </br>
-<?
+<?php
 
 echo "<h1>POSSIBILITIES</h1>";
 $nw = query('SELECT sym FROM relation where disease_id='.$id.'');

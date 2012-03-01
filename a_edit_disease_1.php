@@ -95,7 +95,11 @@ function proc($str,$column,$table,$idn){
 
     <textarea name="d[diagnosis]" cols="" rows="" class="fullw"><?php echo $r['diagnosis'];?></textarea>
   </label>
-  
+  <div class="spacer_30"></div>
+  <label><span>Risk Factors
+
+    <textarea name="d[risk]" cols="" rows="" class="fullw"><?php echo $r['risk'];?></textarea>
+  </label>
   <div class="spacer_30"></div>
   <label><span>Age</span>
 	<input name="d[age]" type="text" class="fullw" value="<?php echo $r['age'];?>">
