@@ -16,9 +16,9 @@ if(!required($full)){
 	exit();
 }
 
-$sql = "insert into lab (lab_name,lab_desc) values ('$full[0]','$full[1]');";
+$sql = "insert into lab (lab_name,lab_desc,lab_index) values ('$full[0]','$full[1]','".strtolower($full[0])."');";
 if(query($sql)){
-	echo 'Lab Investigation entry added';	
+	echo '<div class="msg success"><span>DifferentialLab Investigation entry added</span></div>';	
 }
 
 

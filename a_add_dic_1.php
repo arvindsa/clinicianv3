@@ -16,9 +16,9 @@ if(!required($full)){
 	exit();
 }
 
-$sql = "insert into dictionary (dic_name,dic_desc) values ('$full[0]','$full[1]');";
+$sql = "insert into dictionary (dic_name,dic_desc,dic_index) values ('$full[0]','$full[1]','".strtolower($full[1])."');";
 if(query($sql)){
-	echo 'Dictionary entry added';	
+	echo '<div class="msg success"><span>Dictionary entry added</span></div>';	
 }
 
 

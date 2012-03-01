@@ -16,9 +16,9 @@ if(!required($full)){
 	exit();
 }
 
-$sql = "insert into differential (dif_name,dif_desc) values ('$full[0]','$full[1]');";
+$sql = "insert into differential (dif_name,dif_desc,dif_index) values ('$full[0]','$full[1]','".strtolower($full[0][0])."');";
 if(query($sql)){
-	echo 'Differential entry added';	
+	echo '<div class="msg success"><span>Differential entry added</span><div>';	
 }
 
 

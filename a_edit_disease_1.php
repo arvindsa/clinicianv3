@@ -35,7 +35,7 @@ function proc($str,$column,$table,$idn){
 
   <h1>Add a Disease </h1>
   <label><span>Disease name:</span>
-    <input name="d[name]" type="text" class="fullw" value="<?php echo $r['disease_name'];?>">
+    <input name="d[name]" type="text" class="fullw" value="<?php echo $r['disease_name'];?>" disabled>
   </label>
   <div class="spacer_30"></div>
   <label><span>Clinical Presentation</span>
@@ -126,8 +126,8 @@ var fill={items: [
   $("#pro").autoSuggest("ajax_add_pro.php", {selectedItemProp: "sym",searchObjProps: "sym",selectedValuesProp:"value",inpName:"d[pro]"<?php proc($r['pro'],'pro_name','prognosis','pro_id');?>});
   $("#med").autoSuggest("ajax_add_med.php", {selectedItemProp: "sym",searchObjProps: "sym",selectedValuesProp:"value",inpName:"d[med]"<?php proc($r['med'],'med_name','medication','med_id');?>});
   $("#cau").autoSuggest("ajax_add_cau.php", {selectedItemProp: "sym",searchObjProps: "sym",selectedValuesProp:"value",inpName:"d[cau]"<?php proc($r['cau'],'cau_name','causes','cau_id');?>});
-  $("#pre").autoSuggest("ajax_add_pre.php", {selectedItemProp: "sym",searchObjProps: "sym",selectedValuesProp:"value",inpName:"d[pre]"<?php proc($r['hab'],'hab_name','habbit','hab_id');?>});
-  $("#hab").autoSuggest("ajax_add_hab.php", {selectedItemProp: "sym",searchObjProps: "sym",selectedValuesProp:"value",inpName:"d[hab]"<?php proc($r['pre'],'pre_name','predisposition','pre_id');?>});
+  $("#hab").autoSuggest("ajax_add_hab.php", {selectedItemProp: "sym",searchObjProps: "sym",selectedValuesProp:"value",inpName:"d[hab]"<?php proc($r['hab'],'hab_name','habbit','hab_id');?>});
+  $("#pre").autoSuggest("ajax_add_pre.php", {selectedItemProp: "sym",searchObjProps: "sym",selectedValuesProp:"value",inpName:"d[pre]"<?php proc($r['pre'],'pre_name','predisposition','pre_id');?>});
   
   $("#textare_coll textarea").cleditor({
           width:        "100%", // width not including margins, borders or padding

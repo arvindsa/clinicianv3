@@ -18,9 +18,9 @@ if(!required($full)){
 }
 
 
-$sql = "insert into abbreviation (abb_code,abb_full) values ('$full[1]','$full[0]');";
+$sql = "insert into abbreviation (abb_code,abb_full,abb_index) values ('$full[1]','$full[0]','".strtolower($full[1][0])."');";
 if(query($sql)){
-	echo 'Abbreviation added';	
+	echo '<div class="msg success"><span>Abbreviation added</span></div>';	
 }
 
 

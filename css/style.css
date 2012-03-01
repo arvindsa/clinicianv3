@@ -388,3 +388,17 @@ table.data_table tr:first-child td{
 	padding: 2px 5px;
 	color: #444;
 }
+.lex {
+margin-bottom:15px;
+}
+.lex a{
+	padding:2px 4px;
+	background:#FFF;
+	border:1px solid #000;
+	color:#000;
+	
+}
+
+.tablefix{
+	margin-bottom:15px;
+	}

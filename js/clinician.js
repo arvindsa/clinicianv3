@@ -45,6 +45,20 @@ function bind_link() {
         });
         return false;
     });
+	    $(".ajax_call2").click(function () {
+        href = $(this).attr('href');
+        if (href == '#') {
+            return false;
+        }
+        $('#ajax_target2').load(href, function (response, status, xhr) {
+            if (status == "error") {
+                var msg = "Sorry but there was an error: ";
+                $("#ajax_target").html(msg + xhr.status + " " + xhr.statusText);
+            }
+            bind_link();
+        });
+        return false;
+    });
     //console.log('Binding Link');
 }
 function bind_slist(){
@@ -131,4 +145,14 @@ jQuery.fn.liveUpdate = function (list) {
 function fullh(str){
 	p=$(str).position();
 	$(str).height(window.innerHeight - 60 -p.top + 'px');
+}
+
+function lex_call(){
+	$('.lex_call').click(function(){
+		hr= $(this).attr('href');
+		$('#available').load(hr, function() {
+  			bind_slist();
+		});
+		return false;
+	});
 }

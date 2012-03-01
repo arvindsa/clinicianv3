@@ -66,7 +66,7 @@ while($r=mysql_fetch_assoc($q)){
 
 ?>
 
-<table width="100%" border="0" class="data_table">
+<table width="100%" border="0" class="data_table tablefix">
   <tr>
     <td>Disease name</td>
     <td>Symptom Points</td>
@@ -77,7 +77,7 @@ while($r=mysql_fetch_assoc($q)){
   <?php
   foreach($details as $k=>$v){?>
     <tr>
-    <td><a href="display_disease.php?id=<?php echo $v['id'];?>" class="ajax_call lbox"><?php echo $k;?></a></td>
+    <td><a href="display_disease.php?id=<?php echo $v['id'];?>" class="ajax_call2 lbox"><?php echo $k;?></a></td>
     <td><?php echo $v['p_sym'];?></td>
     <td><?php echo $v['p_age'];?></td>
     <td><?php echo $v['p_sex'];?></td>
@@ -85,7 +85,7 @@ while($r=mysql_fetch_assoc($q)){
   </tr>
   <?php } ?>
 </table>
-
+<div id="ajax_target2"><div>
 
 <script>bind_slist();bind_form();</script>
     <div class="clear"></div>

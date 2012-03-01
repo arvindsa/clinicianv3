@@ -22,26 +22,26 @@ function proc($str,$type=''){
 function addextra($v,$type){
     switch ($type){
         case 'sym':
-            $sql = "insert into symptom (symptom,cat) values ('$v','0');";
+            $sql = "insert into symptom (symptom,cat,sym_index) values ('$v','0','$v[0]');";
             break;
         
         case 'exa':
-            $sql = "INSERT INTO `examination` (`ex_desc`, `cat`) VALUES ('$v',0);";
+            $sql = "INSERT INTO `examination` (`ex_desc`, `cat`,`ex_index`) VALUES ('$v',0,'$v[0]');";
             break;
         case 'pro':
-            $sql = "insert into prognosis (pro_name,pro_cat) values ('$v',0);";
+            $sql = "insert into prognosis (pro_name,pro_cat,pro_index) values ('$v',0,'$v[0]');";
             break;
         case 'med':
-            $sql = "insert into medication (med_name,med_cat) values ('$v',0);"; 
+            $sql = "insert into medication (med_name,med_cat,med_index) values ('$v',0,'$v[0]');"; 
             break;
         case 'cau':
-            $sql = "insert into causes (cau_name,cau_cat) values ('$v',0);";    
+            $sql = "insert into causes (cau_name,cau_cat,cau_index) values ('$v',0,'$v[0]');";    
             break;
         case 'hab':
-            $sql = "insert into habbit (hab_name,hab_cat) values ('$v',0);";   
+            $sql = "insert into habbit (hab_name,hab_cat,hab_index) values ('$v','0','$v[0]');";   
             break;
         case 'pre':
-            $sql = "insert into predisposition (pre_name,pre_cat) values ('$v',0);"; 
+            $sql = "insert into predisposition (pre_name,pre_cat,pre_index) values ('$v',0,'$v[0]');"; 
             break;
     }
     mysql_query($sql);

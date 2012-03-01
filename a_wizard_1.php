@@ -26,13 +26,13 @@ $q=query('SELECT * FROM symptom_cat');
     </p></td>
   </tr>
  
-</table><p>&nbsp;</p>
+</table><p>&nbsp;</p><!--
 <h2>Category</h2>
   <?php
 	while($row=mysql_fetch_assoc($q)){
   		echo '<div class="half left"> <label><input type="checkbox" name="c['.$row['cat_id'].']" id="c['.$row['cat_id'].']">'.$row['cat_name'].'</label></div>';
 	}
-	?>
+	?>-->
 
 <div class="clear"></div>
       <div class="center">
