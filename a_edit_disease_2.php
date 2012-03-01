@@ -56,7 +56,6 @@ foreach($_POST['d'] as $k=>$v){
 $id=intval($_POST['id']);
 $r=<<<EOF
 	UPDATE `disease` SET
-	disease_name='$clean[name]',
 	keynotes='$clean[keynotes]',
 	basics='$clean[basics]',
 	lab='$clean[lab]',
