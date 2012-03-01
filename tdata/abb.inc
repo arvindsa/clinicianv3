@@ -1,1 +1,0 @@
-<option value="1">17 OH</option><option value="2">17KS</option><option value="3">20</option><option value="14">5-ASA</option>

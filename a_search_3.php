@@ -20,6 +20,8 @@ foreach($c as $k=>$v){
 	$query->setWhere('ex LIKE \'%:'.intval($v).':%\'' ,'AND');
 }
 
+$prep='&high=examination&val='.implode(',',$c);
+
 $sql = $query->buildQuery();
 $q=query($sql);
 if(mysql_num_rows($q)==0){
@@ -77,7 +79,7 @@ while($r=mysql_fetch_assoc($q)){
   <?php
   foreach($details as $k=>$v){?>
     <tr>
-<td><a href="display_disease.php?id=<?php echo $v['id'];?>" class="ajax_call2 lbox"><?php echo $k;?></a></td>
+<td><a href="display_disease.php?id=<?php echo $v['id'].$prep;?>" class="ajax_call2 lbox"><?php echo $k;?></a></td>
     <td><?php echo $v['p_sym'];?></td>
     <td><?php echo $v['p_age'];?></td>
     <td><?php echo $v['p_sex'];?></td>
