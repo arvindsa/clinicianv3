@@ -10,7 +10,7 @@
 
 <?php
     
-    $str='.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $str='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $count=strlen($str);
     echo '<div class="lex">';
     for($i=0;$i<$count;$i++){
@@ -35,8 +35,8 @@
 <form id="form1" name="form1" method="post" action="">
   <table width="100%" border="0">
     <tr>
-      <td style="width:250px;"><input name="q" id="q" type="text" style="width:190px; display:block;" />
-      <select name="dic" size="25" id="list" style="width:200px;" class="fullh">
+      <td style="width:350px;"><input name="q" id="q" type="text" style="width:290px; display:block;" />
+      <select name="dic" size="25" id="list" style="width:300px;" class="fullh">
           <?php 
 			while($row=mysql_fetch_assoc($sql)){
 	echo '<option value="'.$row['disease_id'].'">'.$row['disease_name'].'</option>';

@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $('#sidebar, .fullh').height(window.innerHeight - 80 + 'px');
-    $("#smenu .buttons a, #extra_box .buttons a").click(function () {
+    $("#smenu .buttons a,#i_multisearch .buttons a").click(function () {
         href = $(this).attr('href');
 		$('#extra_box').hide('fast');
         if (href == '#') {
@@ -16,8 +16,6 @@ $(document).ready(function () {
         });
         return false;
     });
-	
-	
 	$('#i_multisearch').unbind('click');
 	$('#i_multisearch').click(function(){
 		$('#extra_box').toggle('fast');
@@ -26,6 +24,7 @@ $(document).ready(function () {
 	$('#extra_box a').click(function(){
 		$('#extra_box').hide('fast');
 	});
+	bind_link();
 });
 
 function bind_list(typ) {

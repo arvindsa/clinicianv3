@@ -13,6 +13,7 @@ $query->addColumn('*');
 
 
 //Process checkbox
+if(!isset($_POST['selected'])){die('<div class="msg failure"><span>None selected</span></div>');}
 $c=$_POST['selected'];
 $c2=array();
 foreach($c as $k=>$v){

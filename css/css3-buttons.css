@@ -730,3 +730,12 @@ div.dropdown-slider .ddm:last-child {
 	float:right !important;
 }
 
+#extra_box .buttons a{
+	display:block;
+	float:none !important;
+	text-align:right;
+}
+
+#extra_box .buttons span{
+	float:right !important;
+}

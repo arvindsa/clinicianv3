@@ -43,6 +43,12 @@ function addextra($v,$type){
         case 'pre':
             $sql = "insert into predisposition (pre_name,pre_cat,pre_index) values ('$v',0,'$v[0]');"; 
             break;
+        case 'ris':
+            $sql = "insert into risk (ris_name,ris_cat,ris_index) values ('$v',0,'$v[0]');"; 
+            break;
+        case 'inv':
+            $sql = "insert into inv (inv_name,inv_cat,inv_index) values ('$v',0,'$v[0]');"; 
+            break;
     }
     mysql_query($sql);
     return mysql_insert_id();
@@ -57,7 +63,7 @@ $id=intval($_POST['id']);
 $r=<<<EOF
 	UPDATE `disease` SET
 	keynotes='$clean[keynotes]',
-    risk='$clean[risk]',
+    other='$clean[other]',
 	basics='$clean[basics]',
 	lab='$clean[lab]',
 	treatement='$clean[treatment]',
@@ -79,14 +85,18 @@ $med=proc($_POST['d']['med'],'med');
 $cau=proc($_POST['d']['cau'],'cau');
 $hab=proc($_POST['d']['hab'],'hab');
 $pre=proc($_POST['d']['pre'],'pre');
+$ris=proc($_POST['d']['ris'],'ris');
+$inv=proc($_POST['d']['inv'],'inv');  
 $r=<<<EOF
 	UPDATE `relation` SET
 	sym='$sym',
 	ex='$exa',
+    inv='$inv',
 	pro='$pro',
 	med='$med',
 	cau='$cau',
 	hab='$hab',
+    ris='$ris', 
 	pre='$pre'
 	WHERE disease_id=$id;
 EOF;

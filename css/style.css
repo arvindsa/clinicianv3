@@ -121,6 +121,7 @@ a:hover{
 
 .content_body{
 	padding:20px;
+	padding-top:0;
 	overflow:visible;
 }
 
@@ -220,9 +221,13 @@ input[type=checkbox]{
 .footer{
 	text-align:right;
 	font-size:10px;
+	padding:5px;
 	position:fixed;
-	bottom:10px;
-	right:10px;
+	bottom:0px;
+	right:0px;
+	background:#333;
+	color:#FFF;
+	width:100%;
 }
 
 .spacer_15{
@@ -393,10 +398,25 @@ margin-bottom:15px;
 }
 .lex a{
 	padding:2px 4px;
+	font-size:16px;
 	background:#FFF;
 	border:1px solid #000;
-	color:#000;
-	
+	margin-right:3px;
+	color:#FFF;background-image: linear-gradient(bottom, rgb(59,87,111) 13%, rgb(89,114,145) 57%);
+background-image: -o-linear-gradient(bottom, rgb(59,87,111) 13%, rgb(89,114,145) 57%);
+background-image: -moz-linear-gradient(bottom, rgb(59,87,111) 13%, rgb(89,114,145) 57%);
+background-image: -webkit-linear-gradient(bottom, rgb(59,87,111) 13%, rgb(89,114,145) 57%);
+background-image: -ms-linear-gradient(bottom, rgb(59,87,111) 13%, rgb(89,114,145) 57%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.13, rgb(59,87,111)),
+	color-stop(0.57, rgb(89,114,145))
+);
+border-radius:5px;
+-moz-border-radius:5px;
 }
 
 .tablefix{
@@ -407,3 +427,34 @@ margin-bottom:15px;
 	background:#f8ff2e;
 	padding:auto 6px;
 	}
+	
+#ajax_data ul{
+	margin:5px 0 10px 10px;
+	padding-left:10px;
+}
+#ajax_data li{
+		list-style:disc;
+}
+
+#ajax_target p, #ajax_target2 p{
+	text-indent:5px;
+	margin:2px 0 8px 0;
+}
+
+#ajax_target li, #ajax_target2 li{
+	padding:3px 0;
+}
+
+#extra_box{
+	display:block;
+	position:fixed;
+	top:40px;
+	left:220px;
+	width:150px;
+	padding:20px;
+	z-index:99;
+	display:none;
+	background:#FFFFFF;
+	border:#009 1px solid;
+}
+

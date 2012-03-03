@@ -71,6 +71,16 @@ function proc($str,$column,$table,$idn){
     <input type="text" name="pre" id="pre" />
   </label>
   
+   <div class="spacer_30"></div>
+  <label><span>Lab Investigation</span>
+    <input type="text" name="inv" id="inv" />
+  </label>
+  
+  <div class="spacer_30"></div>
+  <label><span>Risk Factors</span>
+    <input type="text" name="ris" id="ris" />
+  </label>
+  
   <div class="spacer_30"></div>
   <label><span>Keynotes</span>
     <textarea name="d[keynotes]" cols="" rows="" class="fullw"><?php echo $r['keynotes'];?></textarea>
@@ -96,9 +106,9 @@ function proc($str,$column,$table,$idn){
     <textarea name="d[diagnosis]" cols="" rows="" class="fullw"><?php echo $r['diagnosis'];?></textarea>
   </label>
   <div class="spacer_30"></div>
-  <label><span>Risk Factors
+  <label><span>Others
 
-    <textarea name="d[risk]" cols="" rows="" class="fullw"><?php echo $r['risk'];?></textarea>
+    <textarea name="d[other]" cols="" rows="" class="fullw"><?php echo $r['other'];?></textarea>
   </label>
   <div class="spacer_30"></div>
   <label><span>Age</span>
@@ -132,6 +142,8 @@ var fill={items: [
   $("#cau").autoSuggest("ajax_add_cau.php", {selectedItemProp: "sym",searchObjProps: "sym",selectedValuesProp:"value",inpName:"d[cau]"<?php proc($r['cau'],'cau_name','causes','cau_id');?>});
   $("#hab").autoSuggest("ajax_add_hab.php", {selectedItemProp: "sym",searchObjProps: "sym",selectedValuesProp:"value",inpName:"d[hab]"<?php proc($r['hab'],'hab_name','habbit','hab_id');?>});
   $("#pre").autoSuggest("ajax_add_pre.php", {selectedItemProp: "sym",searchObjProps: "sym",selectedValuesProp:"value",inpName:"d[pre]"<?php proc($r['pre'],'pre_name','predisposition','pre_id');?>});
+  $("#ris").autoSuggest("ajax_add_ris.php", {selectedItemProp: "sym",searchObjProps: "sym",selectedValuesProp:"value",inpName:"d[ris]"<?php proc($r['ris'],'ris_name','risk','ris_id');?>});
+  $("#inv").autoSuggest("ajax_add_inv.php", {selectedItemProp: "sym",searchObjProps: "sym",selectedValuesProp:"value",inpName:"d[inv]"<?php proc($r['inv'],'inv_name','inv','inv_id');?>});
   
   $("#textare_coll textarea").cleditor({
           width:        "100%", // width not including margins, borders or padding

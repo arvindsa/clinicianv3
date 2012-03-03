@@ -15,22 +15,21 @@ if(isset($_POST['c'])){
 		$c2[]=$k;
 	}
 	$c2=implode(',',$c2);
-	//$q=query('SELECT * FROM symptom where cat IN ('.$c2.')');
+	//$q=query('SELECT * FROM inv where inv_cat IN ('.$c2.')');
 }else{
-	//$q=query('SELECT * FROM symptom');
+	//$q=query('SELECT * FROM inv');
 }
 ?>
-
 <?php
     
-   $str='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $str='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $count=strlen($str);
     echo '<div class="lex" id="lexbind">';
     for($i=0;$i<$count;$i++){
-        echo '<a href="ajax_getindex_sym.php?index='.$str[$i].'" class="lex_call">'.$str[$i].'</a>';
+        echo '<a href="ajax_getindex_inv.php?index='.$str[$i].'" class="lex_call">'.$str[$i].'</a>';
     }
     echo '</div>'
-?><form action="a_wizard_3.php" method="post">
+?><form action="a_w_inv_3.php" method="post">
 	  <table width="100%" border="0">
 	    <tr>
 	      <td  style="width:50%"><h2>Available symptoms</h2><select name="available" size="30" id="available"  style="width:100%">
@@ -41,9 +40,9 @@ if(isset($_POST['c'])){
           <select name="selected[]" size="30" id="selected" style="width:100%" multiple="multiple">
           </select><input name="age" type="hidden" value="<?php echo $_POST['age'];?>" />
           <input name="sex" type="hidden" value="<?php echo $_POST['sex'];?>" />
-         </td>
+          </td>
         </tr>
-  </table> <div class="center">
+  </table><div class="center">
     <input type="submit" name="submit" id="submit" value="Submit" class="buttonblue" />
   </div></form>
 	  <p>&nbsp; </p><script>bind_slist();bind_form();lex_call();</script>

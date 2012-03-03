@@ -1,5 +1,5 @@
 <?php
-set_time_limit(10);
+set_time_limit(0);
 $file=fopen('abbrev/abbrev.rtf','r');
 mysql_connect('localhost','root','usbw');
 mysql_select_db('clinician');
@@ -15,7 +15,7 @@ while(!feof($file))
               $content2=substr($line,1);
               $content2=trim($content2);  
               echo $content.'->'.$content2.'<br>'; 
-              $sql = 'INSERT INTO `abbreviation` (`abb_code`, `abb_full`,`abb_index`) VALUES (\''.$content.'\', \''.$content2.'\',\''.strtolower($content[0]).'\');';
+              $sql = 'INSERT INTO `abbreviation` (`abb_code`, `abb_full`,`abb_index`) VALUES (\''.mysql_real_escape_string($content).'\', \''.mysql_real_escape_string($content2).'\',\''.strtolower($content[0]).'\');';
               mysql_query($sql);
           } 
       }

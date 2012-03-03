@@ -18,9 +18,9 @@ $c=$_POST['selected'];
 $c2=array();
 foreach($c as $k=>$v){
 	$c2[]=$v;
-	$query->setWhere('sym LIKE \'%:'.intval($v).':%\'' ,'AND');
+	$query->setWhere('inv LIKE \'%:'.intval($v).':%\'' ,'AND');
 }
-$prep='&high=symptom&val='.implode(',',$c);
+$prep='&high=inv&val='.implode(',',$c);
 $sql = $query->buildQuery();
 $q=query($sql);
 if(mysql_num_rows($q)==0){
@@ -87,6 +87,7 @@ while($r=mysql_fetch_assoc($q)){
   <?php } ?>
 </table>
 <div id="ajax_target2"><div>
+
 
 <script>bind_slist();bind_form();</script>
     <div class="clear"></div>

@@ -1,7 +1,7 @@
 <?php
 
 require('inc/sql.php');
-function proc($str,$column,$table,$idn){
+function proc($str,$column,$table,$idn,$print){
 	//Remove space
 	$str=trim($str,' :');
 	$str=explode(':',$str);
@@ -12,6 +12,7 @@ function proc($str,$column,$table,$idn){
 	if($str==''){
 		return;
 	}
+    echo "<h2>$print</h2><div class=\"data_tab\"><ul>";
 	$q=query('SELECT '.$column.' AS Data,'.$idn.' AS id FROM '.$table.' where '.$idn.' IN ('.$str.')');
 	if(isset($_GET['high']) && $table==$_GET['high']){
 		$val=explode(',',$_GET['val']);
@@ -27,6 +28,7 @@ function proc($str,$column,$table,$idn){
 			echo '<li>'.$r['Data'].'</li>';
 		}
 	}
+    echo '</ul></div>'; 
 }
 if(!isset($_GET['id'])){
 	die('<div class="msg failure"><span>No data<span></div>');
@@ -60,25 +62,28 @@ if($r['treatement']!='')
 {
 echo "<h2>Treatment</h2><div class=\"data_tab\">".stripslashes($r['treatement'])."</div>";
 }
-if($r['risk']!='')
-{
-echo "<h2>Risk Factors</h2><div class=\"data_tab\">".stripslashes($r['risk'])."</div>";
-}
-echo "<h2>Sex & Age</h2><div class=\"data_tab\" class=\"case_up\">$r[sex], $r[age]</div>";
-echo "<h2>Clinical Presentation</h2><div class=\"data_tab\"><ul>"; proc($r['sym'],'symptom','symptom','id');echo '</ul></div>';
-//echo "<h2></h2><div class=\"data_tab\"><ul>"; proc($r[''],'','','');echo '</ul></div>';
-echo "<h2>Clinical examination</h2><div class=\"data_tab\"><ul>"; proc($r['ex'],'ex_desc','examination','ex_id');echo '</ul></div>';
-echo "<h2>Prognosis</h2><div class=\"data_tab\"><ul>"; proc($r['pro'],'pro_name','prognosis','pro_id');echo '</ul></div>';
-echo "<h2>Medication</h2><div class=\"data_tab\"><ul>"; proc($r['med'],'med_name','medication','med_id');echo '</ul></div>';
-echo "<h2>Causes</h2><div class=\"data_tab\"><ul>"; proc($r['cau'],'cau_name','causes','cau_id');echo '</ul></div>';
-echo "<h2>Habit</h2><div class=\"data_tab\"><ul>"; proc($r['hab'],'hab_name','habbit','hab_id');echo '</ul></div>';
-echo "<h2>Predisposition</h2><div class=\"data_tab\"><ul>"; proc($r['pre'],'pre_name','predisposition','pre_id');echo '</ul></div>';
 
+echo "<h2>Sex & Age</h2><div class=\"data_tab\" class=\"case_up\">$r[sex], $r[age]</div>";
+proc($r['sym'],'symptom','symptom','id','Clinical Presentation');
+//echo "<h2></h2><div class=\"data_tab\"><ul>"; proc($r[''],'','','');echo '</ul></div>';
+proc($r['ex'],'ex_desc','examination','ex_id','Clinical examination');
+proc($r['pro'],'pro_name','prognosis','pro_id','Prognosis');
+proc($r['med'],'med_name','medication','med_id','Medication');
+proc($r['cau'],'cau_name','causes','cau_id','Causes');
+proc($r['hab'],'hab_name','habbit','hab_id','Habit');
+proc($r['pre'],'pre_name','predisposition','pre_id','Predisposition');
+proc($r['inv'],'inv_name','inv','inv_id','Lab Investigation');
+proc($r['ris'],'ris_name','risk','ris_id','Risk Factors');
+
+if($r['other']!='')
+{
+echo "<div class=\"data_tab\">".stripslashes($r['other'])."</div>";
+}
 ?>
 </br>
 </br>
 <div class="buttons">
-<a href="a_edit_disease_1.php?id=<?php echo $id;?>" class="button ajax_call green"><span class="icon icon145"></span><span class="label">Edit Disease</span></a>
+<a href="a_edit_disease_1.php?id=<?php echo $id;?>" class="button ajax_call green"><span class="label">Edit Disease</span></a>
 </div>
 </br>
 <?php

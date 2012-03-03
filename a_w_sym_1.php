@@ -13,13 +13,15 @@
 
 <h1>Search using</h1>
 <div class="buttons">
-           <a href="a_search_1.php" class="button blue ajax_call"><span class="icon icon198"></span><span class="label">Clinical Examination</span></a>
-          <a href="a_wizard_1.php" class="button blue ajax_call"><span class="icon icon194"></span><span class="label">Clinical Presentation</span></a>
-           <a href="a_w_prognosis_1.php" class="button blue ajax_call"><span class="icon icon87"></span><span class="label">Prognosis</span></a>
-          <a href="a_w_medication_1.php" class="button blue ajax_call"><span class="icon icon150"></span><span class="label">
+           <a href="a_search_1.php" class="button blue ajax_call"><span class="label">Clinical Examination</span></a>
+          <a href="a_wizard_1.php" class="button blue ajax_call"><span class="label">Clinical Presentation</span></a>
+           <a href="a_w_prognosis_1.php" class="button blue ajax_call"><span class="label">Prognosis</span></a>
+          <a href="a_w_medication_1.php" class="button blue ajax_call"><span class="label">
           Medication</span></a>
-           <a href="a_w_causes_1.php" class="button blue ajax_call"><span class="icon icon68"></span><span class="label">Causes</span></a>
-                    <a href="a_w_habbit_1.php" class="button blue ajax_call"><span class="icon icon40"></span><span class="label">Habbit</span></a>
-          <a href="a_w_predisposition_1.php" class="button blue ajax_call"><span class="icon icon40"></span><span class="label">Predisposition</span></a>
-          
+           <a href="a_w_causes_1.php" class="button blue ajax_call"><span class="label">Causes</span></a>
+                    <a href="a_w_habbit_1.php" class="button blue ajax_call"><span class="label">Habbit</span></a>
+          <a href="a_w_predisposition_1.php" class="button blue ajax_call"><span class="label">Predisposition</span></a>
+
+<a href="a_w_risk_1.php" class="button blue ajax_call"><span class="label">Risk Factors</span></a>
+<a href="a_w_inv_1.php" class="button blue ajax_call"><span class="label">Lab Investigation</span></a>          
       </div>
