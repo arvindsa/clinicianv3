@@ -155,7 +155,7 @@ jQuery.fn.liveUpdate = function (list) {
 
 function fullh(str){
 	p=$(str).position();
-	$(str).height(window.innerHeight - 60 -p.top + 'px');
+	$(str).height(window.innerHeight - 30 -p.top + 'px');
 }
 
 function lex_call(){

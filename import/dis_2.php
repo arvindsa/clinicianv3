@@ -29,8 +29,6 @@ mysql_select_db('clinician');
   session_start();
   if($_SESSION['file']==$file_a){
     die('Unable to delete file: '.'dis2/'.$file_a.'.txt');
- }else{
-     $_SESSION['file']=$file_a;
  }
  
 $file= fopen('dis2/'.$file_a.'.txt','r');
@@ -202,7 +200,6 @@ if($flag_listart){
                 $flag_listart=false;
                    
         }
-           echo "$sex\n";
 
 $head_n=array('KEY NOTES','BASICS','TREATMENT','DIAGNOSIS');
 
@@ -226,13 +223,14 @@ if(count($matches)>0){
     }
     $age=intval($age/count($matches));
 }
-echo "$age\n";
+
 
 foreach($content_final as $k=>$v){
     $content_final[$k]=mysql_real_escape_string($v);
 }
 $key=$content_final['KEY NOTES'];
 $other=mysql_real_escape_string($other);
+$file_a2=mysql_real_escape_string($file_a);
 $SQ=<<<EOT
 INSERT INTO `clinician`.`disease` (
 `disease_id` ,
@@ -248,7 +246,7 @@ INSERT INTO `clinician`.`disease` (
 `other`
 )
 VALUES (
-NULL , '$file_a', '$key', '$content_final[BASICS]', '', '$content_final[TREATMENT]', '$content_final[DIAGNOSIS]', '$sex', '$age', '$file_a[0]', '$other'
+NULL , '$file_a2', '$key', '$content_final[BASICS]', '', '$content_final[TREATMENT]', '$content_final[DIAGNOSIS]', '$sex', '$age', '$file_a[0]', '$other'
 );
 EOT;
 
@@ -383,6 +381,9 @@ if($inv=='::'){
 }
 
 $r2=mysql_query($SQ);
+if(!$r2){
+    die(mysql_error());
+}
 $did=mysql_insert_id();
 
 $SQ2=<<<EOT
@@ -404,12 +405,14 @@ VALUES (
 EOT;
 
 if($r2 && mysql_query($SQ2)){
+    $_SESSION['file']=$file_a;
     fclose($file);
     unlink('dis2/'.$file_a.'.txt'); 
 }else{
     echo mysql_error();
     die('BAD');
 }
+
 ?>
  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

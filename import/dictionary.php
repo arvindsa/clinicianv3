@@ -26,8 +26,6 @@ mysql_select_db('clinician');
   session_start();
   if($_SESSION['file']==$file_a){
     die('Unable to delete file: '.'lab2/'.$file_a.'.txt');
- }else{
-     $_SESSION['file']=$file_a;
  }
  $content=file_get_contents('dictionary/'.$file);
  
@@ -35,6 +33,7 @@ mysql_select_db('clinician');
               //die($sql);
  if(mysql_query($sql)){
      unlink(('dictionary/'.$file));
+     $_SESSION['file']=$file_a;
  }else{
      die(mysql_error());
  }

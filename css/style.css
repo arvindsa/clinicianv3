@@ -31,7 +31,6 @@ a:hover{
 
 #wrapper{
 	margin:0 20px;
-	margin-bottom:20px;
 	
 }
 
@@ -223,7 +222,8 @@ input[type=checkbox]{
 	text-align:right;
 	font-size:10px;
 	padding:5px;
-	position:fixed;
+	/*position:fixed;*/
+	display:none;
 	bottom:0px;
 	right:0px;
 	background:#333;

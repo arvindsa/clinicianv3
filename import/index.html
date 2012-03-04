@@ -10,7 +10,15 @@ body {
 	background: #4E5869;
 	margin: 0;
 	padding: 0;
-	color: #000;
+	color: #000;	background: #FFF; /* Old browsers */
+	background: -moz-linear-gradient(top,  #a0d8ef 0%, #b8e0f0 65%, #bfe3f2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a0d8ef), color-stop(65%,#b8e0f0), color-stop(100%,#bfe3f2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #a0d8ef 0%,#b8e0f0 65%,#bfe3f2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #a0d8ef 0%,#b8e0f0 65%,#bfe3f2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #a0d8ef 0%,#b8e0f0 65%,#bfe3f2 100%); /* IE10+ */
+	background: linear-gradient(top,  #a0d8ef 0%,#b8e0f0 65%,#bfe3f2 100%); /* W3C */
+	background-repeat:no-repeat;
+	background-attachment:fixed;
 }
 
 /* ~~ Element/tag selectors ~~ */
@@ -92,7 +100,7 @@ ul.nav a, ul.nav a:visited { /* grouping these selectors makes sure that your li
 	display: block; /* this gives the link block properties causing it to fill the whole LI containing it. This causes the entire area to react to a mouse click. */
 	text-decoration: none;
 	background: #8090AB;
-	color: #000;
+	color: #FFF
 }
 ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background and text color for both mouse and keyboard navigators */
 	background: #6F7D94;

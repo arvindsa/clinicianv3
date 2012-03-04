@@ -17,7 +17,10 @@ if(isset($_POST['c'])){
 	$c2=implode(',',$c2);
 	//$q=query('SELECT * FROM predisposition where pro_cat IN ('.$c2.')');
 }else{
-	//$q=query('SELECT * FROM predisposition');
+	 $sql='SELECT * FROM predisposition where pre_index=\'a\' ORDER BY pre_name ASC LIMIT 200';
+         //die($sql);
+         $sql=mysql_query($sql);
+     
 }
 ?>
 
@@ -34,7 +37,11 @@ if(isset($_POST['c'])){
 	  <table width="100%" border="0">
 	    <tr>
 	      <td  style="width:50%"><h2>Available symptoms</h2><select name="available" size="30" id="available"  style="width:100%">
-           
+             <?php
+     while($row=mysql_fetch_assoc($sql)){
+        echo '<option value="'.$row['pre_id'].'">'.$row['pre_name'].'</option>';
+    }?>
+?>
           </select></td>
 	      <td><h2>Selected symptoms</h2>
           

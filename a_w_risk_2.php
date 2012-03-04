@@ -17,7 +17,10 @@ if(isset($_POST['c'])){
 	$c2=implode(',',$c2);
 	//$q=query('SELECT * FROM risk where risk_cat IN ('.$c2.')');
 }else{
-	//$q=query('SELECT * FROM risk');
+	$sql='SELECT * FROM risk where ris_index=\'a\' ORDER BY ris_name ASC LIMIT 200';
+         //die($sql);
+         $sql=mysql_query($sql);
+     
 }
 ?>
 <?php
@@ -33,7 +36,11 @@ if(isset($_POST['c'])){
 	  <table width="100%" border="0">
 	    <tr>
 	      <td  style="width:50%"><h2>Available symptoms</h2><select name="available" size="30" id="available"  style="width:100%">
-          
+          <?php
+     while($row=mysql_fetch_assoc($sql)){
+        echo '<option value="'.$row['ris_id'].'">'.$row['ris_name'].'</option>';
+    }?>
+?>
           </select></td>
 	      <td><h2>Selected symptoms</h2>
          

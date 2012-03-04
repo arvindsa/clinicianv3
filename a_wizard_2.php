@@ -17,7 +17,10 @@ if(isset($_POST['c'])){
 	$c2=implode(',',$c2);
 	//$q=query('SELECT * FROM symptom where cat IN ('.$c2.')');
 }else{
-	//$q=query('SELECT * FROM symptom');
+	$sql='SELECT * FROM symptom where sym_index=\'a\' ORDER BY symptom ASC LIMIT 200';
+         //die($sql);
+         $sql=mysql_query($sql);
+      
 }
 ?>
 
@@ -34,11 +37,14 @@ if(isset($_POST['c'])){
 	  <table width="100%" border="0">
 	    <tr>
 	      <td  style="width:50%"><h2>Available symptoms</h2><select name="available" size="30" id="available"  style="width:100%">
-          
+           <?php while($row=mysql_fetch_assoc($sql)){
+        echo '<option value="'.$row['id'].'">'.$row['symptom'].'</option>';
+    }?>
           </select></td>
 	      <td><h2>Selected symptoms</h2>
           
           <select name="selected[]" size="30" id="selected" style="width:100%" multiple="multiple">
+         
           </select><input name="age" type="hidden" value="<?php echo $_POST['age'];?>" />
           <input name="sex" type="hidden" value="<?php echo $_POST['sex'];?>" />
          </td>

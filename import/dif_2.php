@@ -29,8 +29,6 @@ mysql_select_db('clinician');
  session_start();
  if($_SESSION['file']==$file_a){
     die('Unable to delete file: '.'dif2/'.$file_a.'.txt');
- }else{
-     $_SESSION['file']=$file_a;
  }
  
 $file= fopen('dif2/'.$file_a.'.txt','r');
@@ -88,6 +86,7 @@ VALUES (
 );
 EOT;
 if(mysql_query($SQL)){
+    $_SESSION['file']=$file_a;
     echo 'Query Good';
     if(!unlink('dif2/'.$file_a.'.txt')){
         die('Unable to delete file now: '.'dif2/'.$file_a.'.txt');
