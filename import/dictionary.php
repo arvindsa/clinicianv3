@@ -1,4 +1,6 @@
 <?php  
+set_time_limit(0);
+error_reporting(E_ERROR);
  $files = array();  
  $dir = opendir('dictionary');  
  while(($file = readdir($dir)) !== false)  

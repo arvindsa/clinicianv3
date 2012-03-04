@@ -1,7 +1,8 @@
 <?php
 
 
-error_reporting(0); 
+set_time_limit(0);
+error_reporting(E_ERROR); 
 // Function that checks whether the data are the on-screen text.
 // It works in the following way:
 // an array arrfailAt stores the control words for the current state of the stack, which show that
@@ -24,7 +25,7 @@ function rtf2text($filename) {
     $document = "";
     $stack = array();
     $j = -1;
-    // Read the data character-by- character…
+    // Read the data character-by- characterï¿½
     for ($i = 0, $len = strlen($text); $i < $len; $i++) {
         $c = $text[$i];
 
@@ -50,7 +51,7 @@ function rtf2text($filename) {
                         $document .= html_entity_decode("&#".hexdec($hex).";");
                     //Shift the pointer.
                     $i += 2;
-                // Since, we’ve found the alphabetic character, the next characters are control word
+                // Since, weï¿½ve found the alphabetic character, the next characters are control word
                 // and, possibly, some digit parameter.
                 } elseif ($nc >= 'a' && $nc <= 'z' || $nc >= 'A' && $nc <= 'Z') {
                     $word = "";
@@ -60,7 +61,7 @@ function rtf2text($filename) {
                     for ($k = $i + 1, $m = 0; $k < strlen($text); $k++, $m++) {
                         $nc = $text[$k];
                         // If the current character is a letter and there were no digits before it,
-                        // then we’re still reading the control word. If there were digits, we should stop
+                        // then weï¿½re still reading the control word. If there were digits, we should stop
                         // since we reach the end of the control word.
                         if ($nc >= 'a' && $nc <= 'z' || $nc >= 'A' && $nc <= 'Z') {
                             if (empty($param))
@@ -83,7 +84,7 @@ function rtf2text($filename) {
                     // Shift the pointer on the number of read characters.
                     $i += $m - 1;
 
-                    // Start analyzing what we’ve read. We are interested mostly in control words.
+                    // Start analyzing what weï¿½ve read. We are interested mostly in control words.
                     $toText = "";
                     switch (strtolower($word)) {
                         // If the control word is "u", then its parameter is the decimal notation of the
@@ -144,7 +145,7 @@ function rtf2text($filename) {
                 array_pop($stack);
                 $j--;
             break;
-            // Skip “trash”.
+            // Skip ï¿½trashï¿½.
             case '\0': case '\r': case '\f': case '\n': break;
             // Add other data to the output stream if required.
             default:

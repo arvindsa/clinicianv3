@@ -63,7 +63,8 @@ if($r['treatement']!='')
 echo "<h2>Treatment</h2><div class=\"data_tab\">".stripslashes($r['treatement'])."</div>";
 }
 
-echo "<h2>Sex & Age</h2><div class=\"data_tab\" class=\"case_up\">$r[sex], $r[age]</div>";
+if($r['sex']!=''){echo '<h2>Sex</h2>'; if($r['sex']=='m'){echo '<p>Male</p>';}else{echo '<p>Female</p>';}}
+if($r['age']!=0 && $r['age']!=''){echo '<h2>Age</h2><p>'.$r['age'].'</p>';}
 proc($r['sym'],'symptom','symptom','id','Clinical Presentation');
 //echo "<h2></h2><div class=\"data_tab\"><ul>"; proc($r[''],'','','');echo '</ul></div>';
 proc($r['ex'],'ex_desc','examination','ex_id','Clinical examination');
