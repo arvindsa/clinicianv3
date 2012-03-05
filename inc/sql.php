@@ -4,7 +4,7 @@
 * @version v2.0
 * @author ArvindSA, Anoop Toffy
 */
-
+error_reporting(0);
 mysql_connect('localhost','root','usbw');
 mysql_select_db('clinician');
 

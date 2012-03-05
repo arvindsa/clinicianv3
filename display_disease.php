@@ -97,7 +97,7 @@ foreach($query_row as $k=>$v){
     $query_row[$k]='sym LIKE \'%'.$v.'%\'';   
 }
 $query_row=implode(' OR ',$query_row);
-$qq =query('SELECT disease_id FROM relation WHERE '.$query_row);
+$qq =query('SELECT disease_id FROM relation WHERE '.$query_row.' LIMIT 10');
 if(mysql_num_rows($qq)==0){
 	echo "No disease found"; 
 }
@@ -108,12 +108,15 @@ while ($row=mysql_fetch_assoc($qq)){
         $temp[]=$row['disease_id'];
     }    
 }
-
+$suffix='';
+if(isset($_GET['high']) && isset($_GET['val'])){
+    $suffix='&high='.$_GET['high'].'&val='.$_GET['val'];
+}
 if(count($temp)>0){
     $str=implode($temp,',');
     $wq = query('SELECT disease_name,disease_id from disease WHERE disease_id IN ('.$str.')');
     while ($row=mysql_fetch_assoc($wq)){
-           echo '<h3><a href="display_disease.php?id='.$row['disease_id'].'&high='.$_GET['high'].'&val='.$_GET['val'].'" class="ajax_call">'.$row['disease_name'].'</a><h3>';
+           echo '<h3><a href="display_disease.php?id='.$row['disease_id'].$suffix.'" class="ajax_call2">'.$row['disease_name'].'</a><h3>';
     } 
 }else{
     echo "No diseases found";
