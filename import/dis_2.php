@@ -16,7 +16,7 @@ $files = array();
  } 
  
  if(count($files)==0){
-     die('Compete');
+     die('Complete');
  }
                   
  closedir($dir); 

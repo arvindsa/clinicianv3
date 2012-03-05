@@ -2,7 +2,7 @@
 
 
 set_time_limit(0);
-error_reporting(E_ERROR); 
+error_reporting(E_ERROR);
 // Function that checks whether the data are the on-screen text.
 // It works in the following way:
 // an array arrfailAt stores the control words for the current state of the stack, which show that
@@ -164,7 +164,7 @@ function rtf2text($filename) {
 }
 
 $files = array();  
- $dir = opendir('dis');  
+ $dir = opendir('dif');  
  while(($file = readdir($dir)) !== false)  
  {  
   if($file !== '.' && $file !== '..' && !is_dir($file))  
@@ -175,7 +175,7 @@ $files = array();
  } 
  
  if(count($files)==0){
-     die('Complete');
+     die('Compete');
  }
                   
  closedir($dir); 
@@ -187,10 +187,10 @@ mysql_select_db('clinician');
  $file_a=substr($file,0,-4);
  
  
-$content= rtf2text('dis/'.$file_a.'.rtf');
-$h=fopen('dis2/'.$file_a.'.txt','w');
+$content= rtf2text('dif/'.$file_a.'.rtf');
+$h=fopen('dif2/'.$file_a.'.txt','w');
 if(fwrite($h,$content)){
-    unlink('dis/'.$file_a.'.rtf');
+    unlink('dif/'.$file_a.'.rtf');
 }
 fclose($h);
 
@@ -198,7 +198,7 @@ fclose($h);
  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="refresh" content="1;url=dis_1.php" /> 
+<meta http-equiv="refresh" content="1;url=dif_1.php" /> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
 </head>
